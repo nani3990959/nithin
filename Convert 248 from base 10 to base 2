@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_LEN 20
+
+void reverse(char* str) {
+    int n = strlen(str);
+    int i;
+    for (i = 0; i < n / 2; i++) {
+        char temp = str[i];
+        str[i] = str[n - i - 1];
+        str[n - i - 1] = temp;
+    }
+}
+
+char* decToBin(int decimal) {
+    static char binary[MAX_LEN];
+    int i = 0;
+    while (decimal > 0) {
+        binary[i++] = decimal % 2 + '0';
+        decimal /= 2;
+    }
+    binary[i] = '\0';
+    reverse(binary);
+    return binary;
+}
+
+int main() {
+    int decimal;
+    printf("Enter the decimal number: ");
+    scanf("%d", &decimal);
+
+    char binary[MAX_LEN];
+    strcpy(binary, decToBin(decimal));
+    printf("The binary equivalent of %d in base 10 is: %s\n", decimal, binary);
+    return 0;
+}
