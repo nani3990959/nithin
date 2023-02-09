@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+  int base_10 = 0, n = 10000010;
+  int digits = floor(log2(n)) + 1;
+  for (int i = 0; i < digits; i++) {
+    if (n & (1 << i)) {
+      base_10 += pow(2, digits - i - 1);
+    }
+  }
+  printf("%d\n", base_10);
+  return 0;
+}
