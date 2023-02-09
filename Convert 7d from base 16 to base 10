@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+#define MAX_LEN 20
+
+int hexToDec(char* hexadecimal) {
+    int decimal = 0;
+    int n = strlen(hexadecimal);
+    int i;
+    for (i = 0; i < n; i++) {
+        int digit = 0;
+        if (hexadecimal[i] >= '0' && hexadecimal[i] <= '9') {
+            digit = hexadecimal[i] - '0';
+        } else if (hexadecimal[i] >= 'A' && hexadecimal[i] <= 'F') {
+            digit = hexadecimal[i] - 'A' + 10;
+        } else if (hexadecimal[i] >= 'a' && hexadecimal[i] <= 'f') {
+            digit = hexadecimal[i] - 'a' + 10;
+        }
+        decimal += digit * pow(16, n - i - 1);
+    }
+    return decimal;
+}
+
+int main() {
+    char hexadecimal[MAX_LEN];
+    printf("Enter the hexadecimal number: ");
+    scanf("%s", hexadecimal);
+
+    int decimal = hexToDec(hexadecimal);
+    printf("The decimal equivalent of %s in base 16 is: %d\n", hexadecimal, decimal);
+    return 0;
+}
