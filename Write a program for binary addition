@@ -1,0 +1,36 @@
+include <stdio.h>
+#include <string.h>
+
+#define MAX_LEN 20
+
+void reverse(char* str) {
+    int n = strlen(str);
+    int i;
+    for (i = 0; i < n / 2; i++) {
+        char temp = str[i];
+        str[i] = str[n - i - 1];
+        str[n - i - 1] = temp;
+    }
+}
+
+int main() {
+    char binary1[MAX_LEN];
+    char binary2[MAX_LEN];
+    int decimal1, decimal2, decimalSum;
+
+    printf("Enter the first binary number: ");
+    scanf("%s", binary1);
+    printf("Enter the second binary number: ");
+    scanf("%s", binary2);
+
+    decimal1 = strtol(binary1, NULL, 2);
+    decimal2 = strtol(binary2, NULL, 2);
+    decimalSum = decimal1 + decimal2;
+
+    char binarySum[MAX_LEN];
+    sprintf(binarySum, "%d", decimalSum);
+    reverse(binarySum);
+
+    printf("The binary sum of %s and %s is: %s\n", binary1, binary2, binarySum);
+    return 0;
+}
