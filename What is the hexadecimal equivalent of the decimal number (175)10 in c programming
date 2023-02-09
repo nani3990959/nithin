@@ -1,0 +1,7 @@
+#include <stdio.h>
+
+int main(void) {
+    int decimal_num = 175;
+    printf("The hexadecimal equivalent of %d is %X\n", decimal_num, decimal_num);
+    return 0;
+}
