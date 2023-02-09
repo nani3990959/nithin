@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+    int decimal_num, octal_num = 0, i = 0;
+    printf("Enter a decimal number: ");
+    scanf("%d", &decimal_num);
+    while (decimal_num != 0) {
+        octal_num += (decimal_num % 8) * pow(10, i++);
+        decimal_num /= 8;
+    }
+    printf("The octal equivalent of %d is %d\n", decimal_num, octal_num);
+    return 0;
+}
