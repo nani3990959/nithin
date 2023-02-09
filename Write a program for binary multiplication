@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_LEN 20
+
+void reverse(char* str) {
+    int n = strlen(str);
+    int i;
+    for (i = 0; i < n / 2; i++) {
+        char temp = str[i];
+        str[i] = str[n - i - 1];
+        str[n - i - 1] = temp;
+    }
+}
+
+int binToDec(char binary[]) {
+    int decimal = 0;
+    int base = 1;
+    int i;
+    int n = strlen(binary);
+    reverse(binary);
+    for (i = 0; i < n; i++) {
+        decimal = decimal + (binary[i] - '0') * base;
+        base = base * 2;
+    }
+    return decimal;
+}
+
+char* decToBin(int decimal) {
+    static char binary[MAX_LEN];
+    int i = 0;
+    while (decimal > 0) {
+        binary[i++] = decimal % 2 + '0';
+        decimal /= 2;
+    }
+    binary[i] = '\0';
+    reverse(binary);
+    return binary;
+}
+
+int main() {
+    char binary1[MAX_LEN];
+    char binary2[MAX_LEN];
+    int decimal1, decimal2, decimalProduct;
+
+    printf("Enter the first binary number: ");
+    scanf("%s", binary1);
+    printf("Enter the second binary number: ");
+    scanf("%s", binary2);
+
+    decimal1 = binToDec(binary1);
+    decimal2 = binToDec(binary2);
+    decimalProduct = decimal1 * decimal2;
+
+    char binaryProduct[MAX_LEN];
+    strcpy(binaryProduct, decToBin(decimalProduct));
+    printf("The binary product of %s and %s is: %s\n", binary1, binary2, binaryProduct);
+    return 0;
+}
