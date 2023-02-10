@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "Enter coefficient of x^2: "
+read a
+
+echo "Enter coefficient of x: "
+read b
+
+echo "Enter constant: "
+read c
+
+# Calculate the discriminant
+disc=$(echo "($b * $b) - (4 * $a * $c)" | bc)
+
+# Check if the equation has real roots
+if [ $(echo "$disc >= 0" | bc) -eq 1 ]
+then
+  # Calculate the square root of the discriminant
+  sqrt_disc=$(echo "sqrt($disc)" | bc -l)
+
+  # Calculate the roots of the equation
+  root1=$(echo "(- $b + $sqrt_disc) / (2 * $a)" | bc -l)
+  root2=$(echo "(- $b - $sqrt_disc) / (2 * $a)" | bc -l)
+
+  echo "The roots of the equation are: $root1 and $root2"
+else
+  echo "The equation has no real roots"
+fi
