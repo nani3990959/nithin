@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "Enter a decimal number: "
+read decimal
+
+# Initialize the binary representation to an empty string
+binary=""
+
+# Loop until the decimal number is greater than 0
+while [ $decimal -gt 0 ]
+do
+  # Calculate the remainder after dividing by 2
+  remainder=$(($decimal % 2))
+
+  # Add the remainder to the binary representation
+  binary="$remainder$binary"
+
+  # Update the decimal number
+  decimal=$(($decimal / 2))
+done
+
+echo "The binary representation of the decimal number is: $binary"
