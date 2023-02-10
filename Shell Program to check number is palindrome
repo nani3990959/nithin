@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "Enter a number: "
+read number
+
+# Store the number in a temporary variable
+temp=$number
+
+# Initialize the reverse number to 0
+reverse=0
+
+# Reverse the number
+while [ $number -gt 0 ]
+do
+  remainder=$(($number % 10))
+  reverse=$((($reverse * 10) + $remainder))
+  number=$(($number / 10))
+done
+
+# Compare the reversed number with the temporary variable
+if [ $temp -eq $reverse ]
+then
+  echo "$temp is a palindrome number"
+else
+  echo "$temp is not a palindrome number"
+fi
