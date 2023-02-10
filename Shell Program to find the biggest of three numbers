@@ -10,3 +10,4 @@ elif [ $num2 -gt $num1 ] && [ $num2 -gt $num3 ]; then
 else
   echo "$num3 is the largest number."
 fi
+
