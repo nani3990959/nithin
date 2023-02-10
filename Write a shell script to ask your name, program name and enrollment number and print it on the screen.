@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "What is your name? "
+read name
+
+echo "What is your program name? "
+read program
+
+echo "What is your enrollment number? "
+read enrollment
+
+echo "Hi, $name. You are enrolled in $program program with enrollment number $enrollment."
