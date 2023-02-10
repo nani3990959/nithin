@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "Enter a number: "
+read num
+
+# Define the function for calculating the factorial
+factorial() {
+  local number=$1
+  if [ $number -eq 0 ]
+  then
+    echo 1
+  else
+    local result=$(($number * $(factorial $(($number - 1)))))
+    echo $result
+  fi
+}
+
+# Call the factorial function
+fact=$(factorial $num)
+
+echo "The factorial of $num is $fact"
