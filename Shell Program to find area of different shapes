@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "Enter shape:
+1. Circle
+2. Rectangle
+3. Square
+4. Triangle"
+read shape
+
+case $shape in
+  1) echo "Enter radius of circle: "
+     read radius
+     area=$(echo "3.14 * ($radius * $radius)" | bc)
+     echo "Area of circle is: $area";;
+  2) echo "Enter length of rectangle: "
+     read length
+     echo "Enter width of rectangle: "
+     read width
+     area=$(($length * $width))
+     echo "Area of rectangle is: $area";;
+  3) echo "Enter side of square: "
+     read side
+     area=$(($side * $side))
+     echo "Area of square is: $area";;
+  4) echo "Enter base of triangle: "
+     read base
+     echo "Enter height of triangle: "
+     read height
