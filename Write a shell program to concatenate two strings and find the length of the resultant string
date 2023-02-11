@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Concatenate two strings
+string1="Hello"
+string2=" World"
+resultant_string="$string1$string2"
+
+# Find the length of the resultant string
+length=${#resultant_string}
+
+# Print the resultant string and its length
+echo "Resultant string: $resultant_string"
+echo "Length of the resultant string: $length"
