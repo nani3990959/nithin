@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Store the two numbers as command line arguments
+num1=$1
+num2=$2
+
+# Perform the arithmetic operations
+sum=$(($num1 + $num2))
+difference=$(($num1 - $num2))
+product=$(($num1 * $num2))
+
+# Output the results
+echo "Sum of $num1 and $num2 is: $sum"
+echo "Difference of $num1 and $num2 is: $difference"
+echo "Product of $num1 and $num2 is: $product"
