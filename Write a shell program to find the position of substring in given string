@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Define the string and the substring
+string="Hello World"
+substring="World"
+
+# Find the position of the substring
+position=$(expr index "$string" "$substring")
+
+# Check if the substring is present in the string
+if [ $position -ne 0 ]; then
+  echo "Substring '$substring' found at position $position"
+else
+  echo "Substring '$substring' not found in the string '$string'"
+fi
